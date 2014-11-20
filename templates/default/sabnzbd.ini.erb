@@ -1,0 +1,225 @@
+__version__ = 19
+[misc]
+admin_dir = admin
+allow_64bit_tools = 1
+allow_incomplete_nzb = 0
+allow_streaming = 0
+ampm = 0
+api_key = <%= @api_key %>
+api_warnings = 1
+auto_browser = 0
+auto_disconnect = 1
+auto_sort = 0
+bandwidth_limit = <%= @bandwidth_limit %>
+cache_dir = cache
+cache_limit = 0
+check_new_rel = 1
+cleanup_list = .nzb, .par2, .sfv
+complete_dir = <%= @complete_dir %>
+config_lock = 0
+create_group_folders = 0
+date_categories = ,
+date_sort_string = ""
+dirscan_dir = <%= @dirscan_dir %>
+dirscan_opts = 3
+dirscan_priority = 0
+dirscan_script = ""
+dirscan_speed = 5
+disable_api_key = 0
+download_dir = <%= @download_dir %>
+download_free = 0
+email_account = ""
+email_dir = ""
+email_endjob = 0
+email_from = ""
+email_full = 0
+email_pwd = ""
+email_rss = 0
+email_server = ""
+email_to = ,
+empty_postproc = 0
+enable_date_sorting = 0
+enable_filejoin = 0
+enable_https = <%= @https %>
+enable_movie_sorting = 0
+enable_par_cleanup = 0
+enable_recursive = 1
+enable_tsjoin = 1
+enable_tv_sorting = 0
+enable_unrar = 1
+enable_unzip = 1
+fail_hopeless = 0
+fail_on_crc = 0
+folder_max_length = 256
+folder_rename = 1
+fsys_type = 0
+history_limit = 50
+host = 0.0.0.0
+https_cert = <%= @https_cert %>
+https_chain = ""
+https_key = <%= @https_key %>
+https_port = <%= @https_port %>
+ignore_samples = 2
+ignore_unrar_dates = 0
+ignore_wrong_unrar = 0
+ionice = ""
+ipv6_servers = 1
+keep_awake = 1
+language = en
+local_range = ""
+log_dir = logs
+login_realm = SABnzbd
+max_art_opt = 0
+max_art_tries = 3
+movie_categories = <%= 'movies' if @movies %>,
+movie_extra_folder = 0
+movie_rename_limit = 100M
+movie_sort_extra = -cd%1
+movie_sort_string = ""
+never_repair = 0
+news_items = 1
+nice = ""
+no_dupes = 0
+no_ipv6 = 0
+no_penalties = 0
+nomedia_marker = ""
+nzb_backup_dir = ""
+nzb_key = none
+osx_menu = 1
+osx_speed = 1
+overwrite_files = 0
+par2_multicore = 0
+par_option = ""
+password = <%= @password %>
+password_file = ""
+pause_on_post_processing = 0
+pause_on_pwrar = 1
+permissions = <%= @permissions %>
+port = 8088
+pre_check = 0
+pre_script = None
+prio_sort_list = ,
+queue_complete = ""
+queue_complete_pers = 0
+quick_check = 1
+quota_day = ""
+quota_period = m
+quota_resume = 0
+quota_size = ""
+random_server_ip = 1
+randomize_server_ip = 0
+refresh_rate = 0
+replace_dots = 0
+replace_illegal = 1
+replace_spaces = 0
+req_completion_rate = 100.2
+rss_filenames = 0
+rss_odd_titles = nzbindex.nl/, nzbindex.com/, nzbclub.com/
+rss_rate = 60
+safe_postproc = 0
+sanitize_safe = 0
+schedlines = <%= @schedule.any? ? @schedule.map { |line| "\"#{line}\"" }.join(', ') : ',' %>
+script_dir = <%= @script_dir %>
+send_group = 0
+sfv_check = 1
+show_sysload = 2
+size_limit = ""
+ssl_type = v23
+start_paused = 0
+top_only = 1
+tv_categories = <%= 'tv' if @tv %>,
+tv_sort_countries = 1
+tv_sort_string = ""
+uniconfig = 1
+unpack_check = 1
+use_pickle = 0
+username = <%= @username %>
+wait_ext_drive = 5
+wait_for_dfolder = 0
+warn_empty_nzb = 1
+warned_old_queue = 0
+web_color = gold
+web_color2 = ""
+web_dir = Plush
+web_dir2 = ""
+web_watchdog = 0
+win_menu = 1
+rating_enable = 0
+rating_feedback = 1
+enable_meta = 1
+rating_api_key = ""
+warn_dupl_jobs = 1
+rating_host = www.oznzb.com
+flat_unpack = 0
+new_nzb_on_failure = 0
+unwanted_extensions = ,
+action_on_unwanted_extensions = 0
+[logging]
+enable_cherrypy_logging = 1
+log_backups = 5
+log_level = 1
+log_new = 0
+max_log_size = 5M
+[servers]
+<% @servers.each do |server| %>
+[[<%= server[:hostname] %>]]
+username = <%= server[:username] %>
+enable = 1
+name = <%= server[:hostname] %>
+fillserver = 0
+connections = <%= server[:connections] %>
+ssl = <%= server[:ssl] %>
+host = <%= server[:hostname] %>
+timeout = 120
+password = <%= server[:password] %>
+optional = 0
+port = <%= server[:port] %>
+retention = <%= server[:retention] %>
+<% end %>
+[growl]
+growl_enable = 0
+ntfosd_enable = 0
+growl_password = ""
+growl_server = ""
+notify_classes = startup, download, pp, complete, other
+ncenter_enable = 0
+[categories]
+[[*]]
+priority = 0
+pp = 3
+name = *
+script = None
+newzbin = ""
+dir = ""
+<% if @tv %>
+[[tv]]
+priority = -100
+pp = ""
+name = tv
+script = sabToSickBeard.py
+newzbin = ""
+dir = ""
+<% end %>
+<% if @movies %>
+[[movie]]
+priority = -100
+pp = ""
+name = movie
+script = update_plex_movies.sh
+newzbin = ""
+dir = <%= @movies[:directory] %>
+<% end %>
+[nzbmatrix]
+username = ""
+apikey = ""
+del_bookmark = 1
+[newzbin]
+username = ""
+url = www.newzbin2.es
+bookmark_rate = 60
+bookmarks = 0
+password = ""
+unbookmark = 1
+[nzbxxx]
+username = ""
+apikey = ""
