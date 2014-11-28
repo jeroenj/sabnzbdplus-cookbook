@@ -4,6 +4,7 @@ default[:sabnzbdplus][:config_directory] = '/etc/sabnzbdplus'
 default[:sabnzbdplus][:apt][:uri] = 'ppa:jcfp/ppa'
 default[:sabnzbdplus][:apt][:distribution] = node[:lsb][:codename]
 
+default[:sabnzbdplus][:preferences][:port] = 8080
 default[:sabnzbdplus][:preferences][:https] = 0
 default[:sabnzbdplus][:preferences][:https_port] = 9090
 default[:sabnzbdplus][:preferences][:https_key] = '""'
