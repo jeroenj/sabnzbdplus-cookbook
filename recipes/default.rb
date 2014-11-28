@@ -30,6 +30,7 @@ template ::File.join(node[:sabnzbdplus][:config_directory], 'sabnzbd.ini') do
     username: node[:sabnzbdplus][:preferences][:username],
     password: node[:sabnzbdplus][:preferences][:password],
     api_key: node[:sabnzbdplus][:preferences][:api_key],
+    port: node[:sabnzbdplus][:preferences][:port],
     https: node[:sabnzbdplus][:preferences][:https],
     https_port: node[:sabnzbdplus][:preferences][:https_port],
     https_key: node[:sabnzbdplus][:preferences][:https_key],
