@@ -3,6 +3,10 @@ sabnzdplus cookbook CHANGELOG
 
 This file is used to list changes made in each version of the sabnzdplus cookbook.
 
+1.1.0
+-----
+* Updates settings for v1.0.0 and makes `bandwidth_max` and `bandwidth_perc` configurable
+
 1.0.3
 -----
 * Correclty set port preference
