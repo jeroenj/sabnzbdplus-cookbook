@@ -41,6 +41,8 @@ template ::File.join(node[:sabnzbdplus][:config_directory], 'sabnzbd.ini') do
     dirscan_dir: node[:sabnzbdplus][:preferences][:dirscan_dir],
     script_dir: scripts_path,
     bandwidth_limit: node[:sabnzbdplus][:preferences][:bandwidth_limit],
+    bandwidth_max: node[:sabnzbdplus][:preferences][:bandwidth_max],
+    bandwidth_perc: node[:sabnzbdplus][:preferences][:bandwidth_perc],
     permissions: node[:sabnzbdplus][:preferences][:permissions],
     servers: node[:sabnzbdplus][:preferences][:servers],
     tv: node[:sabnzbdplus][:preferences][:tv],

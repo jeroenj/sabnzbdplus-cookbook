@@ -16,6 +16,8 @@ default[:sabnzbdplus][:preferences][:download_dir] = '/usr/data/downloads/incomp
 default[:sabnzbdplus][:preferences][:dirscan_dir] = '/usr/data/downloads/nzb'
 
 default[:sabnzbdplus][:preferences][:bandwidth_limit] = 1000
+default[:sabnzbdplus][:preferences][:bandwidth_max] = '1M'
+default[:sabnzbdplus][:preferences][:bandwidth_perc] = 0
 default[:sabnzbdplus][:preferences][:permissions] = 775
 
 default[:sabnzbdplus][:preferences][:username] = ''

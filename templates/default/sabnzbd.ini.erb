@@ -1,4 +1,5 @@
 __version__ = 19
+__encoding__ = utf-8
 [misc]
 admin_dir = admin
 allow_64bit_tools = 1
@@ -59,7 +60,7 @@ https_cert = <%= @https_cert %>
 https_chain = ""
 https_key = <%= @https_key %>
 https_port = <%= @https_port %>
-ignore_samples = 2
+ignore_samples = 1
 ignore_unrar_dates = 0
 ignore_wrong_unrar = 0
 ionice = ""
@@ -108,7 +109,7 @@ quota_resume = 0
 quota_size = ""
 random_server_ip = 1
 randomize_server_ip = 0
-refresh_rate = 0
+refresh_rate = 1
 replace_dots = 0
 replace_illegal = 1
 replace_spaces = 0
@@ -138,9 +139,9 @@ wait_ext_drive = 5
 wait_for_dfolder = 0
 warn_empty_nzb = 1
 warned_old_queue = 0
-web_color = gold
+web_color = Default
 web_color2 = ""
-web_dir = Plush
+web_dir = Glitter
 web_dir2 = ""
 web_watchdog = 0
 win_menu = 1
@@ -171,6 +172,25 @@ rating_filter_abort_audio = 0
 rating_filter_pause_spam = 0
 rating_filter_pause_video = 0
 rating_filter_abort_spam = 0
+notified_new_skin = 1
+inet_exposure = 0
+selftest_host = self-test.sabnzbd.org
+load_balancing = 2
+enable_7zip = 1
+warned_old_queue9 = 0
+enable_https_verification = 0
+ipv6_hosting = 0
+enable_bonjour = 1
+enable_all_par = 1
+queue_limit = 20
+no_series_dupes = 0
+bandwidth_max = <%= @bandwidth_max %>
+local_ranges = ,
+backup_for_duplicates = 1
+sched_converted = 1
+script_can_fail = 0
+bandwidth_perc = <%= @bandwidth_perc %>
+api_logging = 1
 [logging]
 enable_cherrypy_logging = 1
 log_backups = 5
@@ -181,16 +201,21 @@ max_log_size = 5M
 <% @servers.each do |server| %>
 [[<%= server[:hostname] %>]]
 username = <%= server[:username] %>
+priority = 0
 enable = 1
+displayname = <%= server[:hostname] %>
 name = <%= server[:hostname] %>
-fillserver = 0
+ssl_type = t1
+notes = ""
 connections = <%= server[:connections] %>
 ssl = <%= server[:ssl] %>
 host = <%= server[:hostname] %>
 timeout = 120
+send_group = 0
 password = <%= server[:password] %>
 optional = 0
 port = <%= server[:port] %>
+categories = Default,
 retention = <%= server[:retention] %>
 <% end %>
 [growl]
@@ -200,6 +225,16 @@ growl_password = ""
 growl_server = ""
 notify_classes = startup, download, pp, complete, other
 ncenter_enable = 0
+growl_prio_disk_full = 1
+growl_prio_other = 0
+growl_prio_download = 0
+growl_prio_startup = 1
+growl_prio_failed = 1
+growl_prio_queue_done = 1
+growl_prio_warning = 0
+growl_prio_error = 0
+growl_prio_complete = 1
+growl_prio_pp = 0
 [categories]
 [[*]]
 priority = 0
@@ -240,3 +275,81 @@ unbookmark = 1
 [nzbxxx]
 username = ""
 apikey = ""
+[ncenter]
+ncenter_prio_download = 0
+ncenter_prio_warning = 0
+ncenter_prio_queue_done = 1
+ncenter_prio_startup = 1
+ncenter_prio_failed = 1
+ncenter_prio_disk_full = 1
+ncenter_prio_error = 0
+ncenter_enable = 0
+ncenter_prio_complete = 1
+ncenter_prio_pp = 0
+ncenter_prio_other = 0
+[pushover]
+pushover_prio_error = -2
+pushover_enable = 0
+pushover_prio_complete = 1
+pushover_prio_warning = -2
+pushover_prio_startup = -2
+pushover_prio_queue_done = -1
+pushover_prio_other = -2
+pushover_prio_pp = -2
+pushover_prio_disk_full = 1
+pushover_device = ""
+pushover_token = ""
+pushover_prio_failed = 1
+pushover_prio_download = -2
+pushover_userkey = ""
+[prowl]
+prowl_prio_disk_full = 1
+prowl_prio_error = -3
+prowl_prio_download = -3
+prowl_enable = 0
+prowl_prio_failed = 1
+prowl_prio_pp = -3
+prowl_apikey = ""
+prowl_prio_startup = -3
+prowl_prio_warning = -3
+prowl_prio_other = -3
+prowl_prio_complete = 0
+prowl_prio_queue_done = 0
+[acenter]
+acenter_prio_warning = 0
+acenter_prio_disk_full = 1
+acenter_prio_error = 0
+acenter_prio_failed = 1
+acenter_prio_startup = 0
+acenter_prio_queue_done = 1
+acenter_enable = 0
+acenter_prio_complete = 1
+acenter_prio_download = 0
+acenter_prio_pp = 0
+acenter_prio_other = 0
+[ntfosd]
+ntfosd_prio_queue_done = 1
+ntfosd_enable = 1
+ntfosd_prio_error = 0
+ntfosd_prio_startup = 1
+ntfosd_prio_complete = 1
+ntfosd_prio_pp = 0
+ntfosd_prio_warning = 0
+ntfosd_prio_other = 0
+ntfosd_prio_disk_full = 1
+ntfosd_prio_download = 0
+ntfosd_prio_failed = 1
+[pushbullet]
+pushbullet_prio_download = 0
+pushbullet_prio_queue_done = 0
+pushbullet_enable = 0
+pushbullet_prio_complete = 1
+pushbullet_prio_warning = 0
+pushbullet_device = ""
+pushbullet_prio_failed = 1
+pushbullet_prio_other = 0
+pushbullet_apikey = ""
+pushbullet_prio_disk_full = 1
+pushbullet_prio_pp = 0
+pushbullet_prio_startup = 0
+pushbullet_prio_error = 0
