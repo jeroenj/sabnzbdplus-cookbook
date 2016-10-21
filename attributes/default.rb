@@ -1,7 +1,7 @@
 default[:sabnzbdplus][:user] = 'sabnzbdplus'
 default[:sabnzbdplus][:config_directory] = '/etc/sabnzbdplus'
 
-default[:sabnzbdplus][:apt][:uri] = 'ppa:jcfp/ppa'
+default[:sabnzbdplus][:apt][:uri] = 'ppa:jcfp/nobetas'
 default[:sabnzbdplus][:apt][:distribution] = node[:lsb][:codename]
 
 default[:sabnzbdplus][:preferences][:port] = 8080
